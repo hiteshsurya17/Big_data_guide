@@ -22,18 +22,24 @@ b.collect # this is the action previous functions are all transformations
 
 # python - pyspark repl:
 text_file = sc.textFile("/home/hitesh_170/word.txt")
->>> counts = text_file.flatMap(lambda line: line.split(" ")).map(lambda word: (word, 1)).reduceByKey(lambda x, y: x + y)
->>> output = counts.collect()
->>> for (word, count) in output:                                                
-...     print("%s: %i" % (word, count))
-... 
-is: 1
-count: 3
-test: 1
-This: 1
-a: 1
-word: 2
+counts = text_file.flatMap(lambda line: line.split(" ")).map(lambda word: (word, 1)).reduceByKey(lambda x, y: x + y)
+output = counts.collect()
+for (word, count) in output:                                                
+  print("%s: %i" % (word, count))
+ 
+# is: 1
+# count: 3
+# test: 1
+# This: 1
+# a: 1
+# word: 2
 
 quit() # to quit pyspark repl
+
+# python code to run spark submit job
+
+# spark submit 
+spark-submit --master <spark_master_url> --deploy-mode <deploy_mode> --executor-memory 4G --executor-cores 2 example.py
+# master can be give yarn or if running on standalone give the spark master url available in local host 8080 and deploy mode is cluster
 
 

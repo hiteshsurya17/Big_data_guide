@@ -2,7 +2,7 @@
 # set up ssh connection so that you connect to localhost 
 # set hadoop configuration files to fit your architecture and map the jdk you have 
 sudo apt-get install openssh-server
-ssh localhost
+ssh localhost # Running ssh localhost essentially attempts to establish an SSH (Secure Shell) connection to the local machine itself
 ssh-keygen -t rsa # this generates the ssh key of our machine and which ever machine has this key we can connect to that machine
 cat is_rsa.pub >> authorized_keys #write this to authorized_keys to connect without password
 bin/hadoop namenode -format # format is only done the first time which runs our config files and sets up nodes if you run every time it will delete the meta data and data in slaves 
