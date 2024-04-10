@@ -21,11 +21,22 @@ b.collect # this is the action previous functions are all transformations
 :quit # to exit the shell
 
 # python - pyspark repl:
-text_file = sc.textFile("/home/hitesh_170/word.txt")
+text_file = sc.textFile("/home/hitesh_170/word.txt") # to read a file in hdfs 
+text_file = sc.textFile("file:///home/hitesh_170/word.txt") # to read a file in local file system
 counts = text_file.flatMap(lambda line: line.split(" ")).map(lambda word: (word, 1)).reduceByKey(lambda x, y: x + y)
 output = counts.collect()
 for (word, count) in output:                                                
   print("%s: %i" % (word, count))
+
+# save to a file 
+counts.map(lambda x: f"{x[0]}: {x[1]}").saveAsTextFile("file:///home/hitesh_170/out_word")
+
+#checking number of partitions in an rdd
+num_partitions = rdd.getNumPartitions() 
+print("Number of partitions:", num_partitions)
+# repartition 
+# Repartition to 3 partitions
+word_counts = word_counts.repartition(3)
  
 # is: 1
 # count: 3
