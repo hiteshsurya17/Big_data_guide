@@ -9,6 +9,7 @@ sbin/start-all.sh # run this command in spark directory to start the demon proce
 jps # to check the running demon processes
 
 # localhost port 8080 is the spark master web ui.
+# localhost port 4040 is the spark jobs web ui
 
 # word count program
 
