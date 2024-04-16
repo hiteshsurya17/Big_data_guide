@@ -1,0 +1,7 @@
+# this is the config file for namenode ,do this in all the nodes with master ip address
+<configuration>
+<property>
+<name>fs.default.name</name>
+<value>hdfs://<ip_address_of_master>:50000</value>
+</property>
+</configuration>

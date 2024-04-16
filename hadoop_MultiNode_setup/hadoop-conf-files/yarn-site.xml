@@ -1,0 +1,17 @@
+# this is the config file for yarn i,e resourcemanager , add it in all node configs
+<property>
+<name>yarn.nodemanager.aux-services</name> <value>mapreduce_shuffle</value>
+</property>
+<property>
+<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name> <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
+<property>
+<description>The hostname of the RM.</description>
+<name>yarn.resourcemanager.hostname</name>
+<value><ip_address_of_master></value>
+</property>
+<property>
+<description>The address of the applications manager interface in the RM.</description>
+<name>yarn.resourcemanager.address</name>
+<value><ip_address_of_master>:8032</value>
+</property>

@@ -1,0 +1,12 @@
+# this is hdfs config file which has info about where to store blocks meta data and the actual hdfs blocks 
+# these directories are created when we first format hadoop , only master node will have the first property 
+# which is the meta data storage directory and the second property will be in all slave nodes which is where the 
+# blocks are store but not the master node
+<property>
+<name>dfs.namenode.name.dir</name>
+<value>/home/hitesh_170/hadoop2-dir/namenode-dir</value>
+</property>
+<property>
+<name>dfs.datanode.data.dir</name>
+<value>/home/hitesh_170/hadoop2-dir/datanode-dir</value>
+</property>

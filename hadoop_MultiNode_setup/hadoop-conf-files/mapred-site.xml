@@ -1,0 +1,7 @@
+# if mapred-site.xml is not there create it or if mapred-site.xml.template just rename it
+# this is mapred config file 
+<property>
+<name>mapreduce.framework.name</name>
+<value>yarn</value>
+</property>
+# we are just setting yarn as our engine 
